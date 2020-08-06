@@ -12,10 +12,14 @@
       <button @click="toggleRole">Toggle</button> <br>
       userIsAuthenticated = "{{ userIsAuthenticated }}" <br>
       userRole = "{{ userRole }}" <br>
-      <button @click="setList()">setList</button> <br>
-      <button @click="pushItem">pushItem</button> <br>
+      <button @click="setProductList()">setProductList</button> <br>
+      <button @click="pushProduct">pushProduct</button> <br>
       productIsEmpty = "{{ productIsEmpty }}" <br>
       productList = "{{ productList }}" <br>
+      <button @click="setWorkoutList()">setWorkoutList</button> <br>
+      <button @click="pushWorkout">pushWorkout</button> <br>
+      workoutIsEmpty = "{{ workoutIsEmpty }}" <br>
+      workoutList = "{{ workoutList }}" <br>
       Stock Type Stock Type Stock Type <br>
       Stock Type Stock Type Stock Type <br>
       Stock Type Stock Type Stock Type <br>

@@ -9,13 +9,26 @@ export default class Stock extends Vue {
     this.$storage.commit('userRole', role)
   }
   
-  setList() {
+  setProductList() {
     this.$storage.commit('productList', [])
   }
   
-  async pushItem() {
+  async pushProduct() {
     try {
       let pushed = await this.$storage.dispatch('productPush', Math.random().toString())
+      console.log(pushed)
+    } catch (e) {
+      console.log(e.message)
+    }
+  }
+  
+  setWorkoutList() {
+    this.$storage.commit('workoutList', [])
+  }
+  
+  async pushWorkout() {
+    try {
+      let pushed = await this.$storage.dispatch('workoutPush', Math.random().toString())
       console.log(pushed)
     } catch (e) {
       console.log(e.message)
@@ -41,6 +54,14 @@ export default class Stock extends Vue {
   
   get productList() {
     return this.$storage.state.product.list
+  }
+  
+  get workoutIsEmpty() {
+    return this.$storage.getters.workoutIsEmpty
+  }
+  
+  get workoutList() {
+    return this.$storage.state.workout.list
   }
   
 }
