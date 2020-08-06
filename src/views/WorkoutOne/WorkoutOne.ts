@@ -2,14 +2,14 @@ import { Component, Vue } from 'vue-property-decorator'
 import { CreateElement, VNode } from 'vue'
 
 @Component
-export default class SettingsStock extends Vue {
+export default class WorkoutOne extends Vue {
 
 }
 
 @Component({
   render(h: CreateElement): VNode {
-    return h('div', 'Stock')
+    return h('div', 'WorkoutOne')
   },
 })
-export class SettingsStockTitle extends Vue {
+export class WorkoutOneTitle extends Vue {
 }

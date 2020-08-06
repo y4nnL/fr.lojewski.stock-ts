@@ -40,7 +40,6 @@ async function launch() {
   await boot.user({ main: main, router, storage })
 }
 
-
 launch()
   .then(() => new Vue(main).$mount('#main'))
   .catch((e) => console.error('[Main] boot error : ', e))

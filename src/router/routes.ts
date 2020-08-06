@@ -8,6 +8,10 @@ import SettingsStockComponent, { SettingsStockTitle } from '@/views/SettingsStoc
 import ShoppingComponent from '@/views/Shopping'
 import StockComponent from '@/views/Stock'
 import { UserRole } from '@/storage/types'
+// Wootr
+import WorkoutComponent from '@/views/Workout'
+import WorkoutBoardComponent, { WorkoutBoardTitle } from '@/views/WorkoutBoard'
+import WorkoutOneComponent, { WorkoutOneTitle } from '@/views/WorkoutOne'
 
 export interface AppRouteConfig extends RouteConfig {
   name: string;
@@ -29,6 +33,11 @@ export enum RouteNames {
   SettingsStock = 'settings-stock',
   Shopping = 'shopping',
   Stock = 'stock',
+  // Wootr
+  Diet = 'diet',
+  Workout = 'workout',
+  WorkoutBoard = 'workout-board',
+  WorkoutOne = 'workout-one'
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -41,7 +50,7 @@ const accountRoute: AppRouteConfig = {
   meta: {
     auth: true,
     level: 2,
-    position: 4,
+    position: 5,
     roles: [ UserRole.Any ],
   },
 }
@@ -180,6 +189,61 @@ const catchRoute: AppRouteConfig = {
   },
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Wootr - Workout
+
+const workoutPath = '/workout'
+
+const workoutBoardRoute: AppRouteConfig = {
+  components: {
+    default: WorkoutBoardComponent,
+    title: WorkoutBoardTitle,
+  },
+  name: RouteNames.WorkoutBoard,
+  path: workoutPath,
+  meta: {
+    auth: true,
+    level: 2,
+    position: 4,
+    roles: [ UserRole.Any ],
+  },
+}
+
+const workoutOneRoute: AppRouteConfig = {
+  components: {
+    default: WorkoutOneComponent,
+    title: WorkoutOneTitle,
+  },
+  name: RouteNames.WorkoutOne,
+  path: workoutPath + '/stock',
+  meta: {
+    auth: true,
+    level: workoutBoardRoute.meta.level + 1,
+    position: workoutBoardRoute.meta.position,
+    roles: [ UserRole.Any ],
+  },
+}
+
+const workoutRoute: AppRouteConfig = {
+  component: WorkoutComponent,
+  name: RouteNames.Workout,
+  path: workoutPath,
+  children: [
+    workoutBoardRoute,
+    workoutOneRoute,
+  ],
+  redirect: {
+    name: RouteNames.WorkoutOne,
+    replace: true,
+  },
+  meta: {
+    auth: true,
+    level: -1,
+    position: -1,
+    roles: [ UserRole.Any ],
+  },
+}
+
 export const routes: AppRouteConfig[] = [
   accountRoute,
   authRoute,
@@ -187,6 +251,8 @@ export const routes: AppRouteConfig[] = [
   settingsRoute,
   shoppingRoute,
   stockRoute,
+  // Wootr
+  workoutRoute,
   // Catch unmatched routes
   catchRoute,
 ]

@@ -1,5 +1,4 @@
-<script lang="ts"
-        src="./Account.ts"></script>
+<script src="./Account.ts"></script>
 <style lang="sass">@import "./Account.sass"</style>
 
 <template>

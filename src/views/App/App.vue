@@ -26,6 +26,11 @@
         </router-link>
         <router-link active-class="-active"
                      class="app_footer_link"
+                     :to="$routes.workout">
+          Workout
+        </router-link>
+        <router-link active-class="-active"
+                     class="app_footer_link"
                      :to="$routes.account">
           Account
         </router-link>

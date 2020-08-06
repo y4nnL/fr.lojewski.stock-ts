@@ -5,23 +5,20 @@
   <div class="settings-board">
     <router-link class="settings-board_link"
                  :to="$routes['settings-stock']">
-      Stock settings
+      Settings stock
     </router-link>
     <router-link class="settings-board_link"
                  :to="$routes['settings-stock']">
-      Stock settings
+      Settings stock
     </router-link>
     <router-link class="settings-board_link"
                  :to="$routes['settings-stock']">
-      Stock settings
+      Settings stock
     </router-link>
     <router-link class="settings-board_link"
                  :to="$routes['settings-stock']">
-      Stock settings
+      Settings stock
     </router-link>
-    <!--<router-link class="settings-board_link">b</router-link>
-    <router-link class="settings-board_link">c</router-link>
-    <router-link class="settings-board_link">d</router-link>-->
   </div>
 </template>
 
