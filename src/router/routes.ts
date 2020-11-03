@@ -215,7 +215,7 @@ const workoutOneRoute: AppRouteConfig = {
     title: WorkoutOneTitle,
   },
   name: RouteNames.WorkoutOne,
-  path: workoutPath + '/stock',
+  path: workoutPath + '/one',
   meta: {
     auth: true,
     level: workoutBoardRoute.meta.level + 1,
